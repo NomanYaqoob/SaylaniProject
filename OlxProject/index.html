@@ -2,82 +2,13 @@
 <html>
 <head>
     <title></title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        .main{
-            margin: 20px auto;
-            width: 68%;
-            font-family: sans-serif;
-        }
-
-        .logo{
-            /*position: relative;
-            top: 35px;
-            margin-right: 10px;*/
-        }
-        .heading {
-            display: inline;
-            font-family: sans-serif;
-            position: absolute;
-            top: 32px;
-            left: 315px;
-            font-size: 20px;
-        }
-        .logoPortion {
-            display: inline;
-        }
-        .acc-Portion {
-            display: inline-block;
-            float: right;
-            margin: 35px 0px 0px 0px;
-        }
-
-
-        .acc-Portion p {
-            display: inline;
-            margin-left: 10px;
-            margin-right: 8px;
-        }
-
-        .subAddText {
-            color: #ff7700;
-            text-decoration: none;
-        }
-
-        .subAddText:hover {
-            background: #ff7700;
-            color: white;
-        }
-
-        .accountText{
-            color: #304bb5;
-            font-weight: bold;
-        }
-
-        .accountText:hover {
-            color: #ff7700 ;
-        }
-        .acc-Portion a {
-            text-decoration: none;
-        }
-
-
-        .imagePerson {
-            background: url(images/acc-icon.png) no-repeat;
-            padding: 5px 9px;
-            color: transparent;
-        }
-
-        .plusSign {
-            background: url("images/submitAddIcon.png") no-repeat;
-            padding: 6px 10px;
-            color: transparent;
-
-        }
 
     </style>
 </head>
-<body class="main">
-
+<body>
+<div class="main">
 <div>
     <div class="logoPortion">
         <img class="logo" src="images/olxLogo.png" alt="Olx Logo" />
@@ -90,40 +21,88 @@
         <a href="#"><span class="plusSign" >s</span> <p class="subAddText">Submit an Ad</p></a>
     </div>
 </div>
+
+
 <div class="searchBar">
     <input type="text" placeholder="All Pakistan">
-    <input type="text" placeholder="Ads near you">
-    <input type="button" value="Search" />
-</div>
-<div class="Category">
-    <a href="#" class="subCat"><img src="#"><p>Mobile & Tablets</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Electronics & Computer</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Vehicle</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Home & Furniture</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Animals</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Books, Sports & Hobbies</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Fashion & Beauty</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Kids & Baby Products</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Services</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Jobs</p></a>
-    <a href="#" class="subCat"><img src="#"><p>Real Estate</p></a>
+    <div class="areaDiv">
+        <img src="images/magnifyingGlass.png">
+        <input class="diff" type="text" placeholder="Ads near you">
+    </div>
+    <div class="btnDiv">
+        <img src="images/finalwhitemg.png">
+        <input type="button" value="Search" />
+    </div>
+    <div class="clear"></div>
 </div>
 
-<div class="SubmitAd">
-    <h2>Sell your  item on OLX</h2>
-    <input type="button" value="Submit an Ad">
+<div>
+<div class="category">
+    <table>
+        <tr>
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/mobile.jpg"><p>Mobile & Tablets</p></a>
+            </td>
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/laptop.jpg"><p>Electronics & Computer</p></a>
+            </td>
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/car.jpg"><p>Vehicle</p></a>
+            </td>
+            <td class="column4">
+                <a href="#" class="subCat"><img src="images/furniture.jpg"><p>Home & Furniture</p></a>
+            </td>
+        </tr>
+        <tr >
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/animal.jpg"><p>Animals</p></a>
+            </td>
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/book.jpg"><p>Books, Sports & Hobbies</p></a>
+            </td>
+            <td class="column1">
+                <a href="#" class="subCat"><img src="images/shopping.jpg"><p>Fashion & Beauty</p></a>
+            </td>
+            <td class="column4">
+                <a href="#" class="subCat"><img src="images/toys.jpg"><p>Kids & Baby Products</p></a>
+            </td>
+        </tr>
+        <tr >
+        <td class="column1">
+            <a href="#" class="subCat"><img src="images/cook.jpg"><p>Services</p></a>
+        </td>
+        <td class="column1">
+            <a href="#" class="subCat"><img src="images/job.jpg"><p>Jobs</p></a>
+        </td>
+        <td class="column1">
+            <a href="#" class="subCat"><img src="images/house.jpg"><p>Real Estate</p></a>
+        </td>
+    </tr>
+    </table>
+</div>
+
+<div class="submitAd">
+    <p>Sell your  item on OLX</p>
+    <input type="button">
     <ul>
-        <li>For free and without registration</li>
-        <li>Add up to <b>8 photos</b> per Ad</li>
-        <li>Active for <b>30 days</b></li>
+        <li>For free and <span class = "black">without registration</span></li>
+        <li>Add up to <span class="black">8 photos</span> per Ad</li>
+        <li>Active for <span class="black">30 days</span></li>
     </ul>
-    <p>Your OlX Ads: </p>
+    <div class="section">
+    <h6>Your OlX Ads: </h6>
     <a href="#">Edit, </a>
     <a href="#">Remove</a>
+    </div>
 </div>
-<img src="images/background.png" alt="bgImage"/>
-<img src="images/mobileApps.png" alt="mobileApps"/>
-<table>
+</div>
+
+</div>
+<footer>
+<img src="images/background.png" id="bg" alt="bgImage"/>
+<div id="mobile"><img src="images/mobileApps.png" alt="mobileApps"/></div>
+    <div class="lastPortion">
+<table class="myTable">
     <tr>
         <td><a href="#">Mobile Apps</a></td>
         <td><a href="#">Sitemap</a></td>
@@ -137,12 +116,14 @@
     <tr>
         <td><a href="#">Terms of Use</a></td>
         <td><a href="#">Archive</a></td>
-        <td><a href="#">Who we are <img src="#"></a></td>
+        <td><a href="#">Who we are <img src="images/arr1.png"></a></td>
     </tr>
     <tr>
         <td><a href="#">How it works</a></td>
         <td><a href="#">Contact Us</a></td>
     </tr>
 </table>
+    </div>
+</footer>
 </body>
 </html>
