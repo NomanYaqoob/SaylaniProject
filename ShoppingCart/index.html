@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script>
+
+        var email,pw,emailRegex;
+        var arrEm = [],arrPw = [];
+        if(!(localStorage.getItem("email") && localStorage.getItem("pw"))){
+            localStorage["email"]  = JSON.stringify(arrEm);
+            localStorage["pw"] = JSON.stringify(arrPw);
+        }
+
+        function SignUp() {
+            email = document.getElementById("emailSU").value;
+            pw = document.getElementById("passwordSU").value;
+                emailRegex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+            if(!emailRegex.test(email)) {
+                console.log("wrong");
+                document.getElementById("errorBox").innerHTML = "Email is not in correct format";
+            }
+            else if (checkUser(email)) {
+                alert("Email is already registered");
+                document.getElementById("emailSU").value = "";
+                document.getElementById("passwordSU").value= "";
+                }
+
+            if(pw.length < 7) {
+                alert("Password must be of 7 or more characters!!");
+                document.getElementById("passwordSU").value= "";
+            }
+            else {
+                document.getElementById("errorBox").innerHTML = "";
+                var userEmail = JSON.parse(localStorage["email"]);
+                var userPw = JSON.parse(localStorage["pw"]);
+                console.log("UserEmail: " + typeof userEmail + "userPW: " + typeof userPw);
+                userEmail.push(email);
+                userPw.push(pw);
+                localStorage.setItem("email",JSON.stringify(userEmail));
+                localStorage.setItem("pw",JSON.stringify(userPw));
+                document.getElementById("emailSU").value = "";
+                document.getElementById("passwordSU").value= "";
+                alert("Thank you for joining.. Press Okay to redirect to Shop");
+                window.open("shop.html","_self");
+            }
+        }
+        function checkUser(CEmail) {
+            var checkEmail = JSON.parse(localStorage["email"]);
+            var position = checkEmail.indexOf(CEmail);
+            return position != -1;
+        }
+
+        function SingIn() {
+            email = document.getElementById("emailSU").value;
+            pw = document.getElementById("passwordSU").value;
+           if(ValidateSignIn(email,pw)) {
+               alert("Welcome!");
+               window.open("shop.html","_self");
+           }
+        }
+
+        function ValidateSignIn(email,password){
+            arrEm = localStorage["email"];
+            arrPw = localStorage["pw"];
+            var emailMatch = arrEm.indexOf(email)
+            var pwMatch = arrPw.indexOf(password);
+            if(emailMatch == -1 || pwMatch == -1) {
+                return false;
+            }
+             if(emailMatch == pwMatch)
+                return true;
+            else
+                return false;
+        }
+    </script>
+</head>
+<body class="main">
+<header>
+    <div class="header">
+
+        <span class="logo">Dop
+            <span>Shop</span>
+            <span class="SupportLogo">The best Shopping Site in Pakistan</span >
+        </span>
+        <ul class="head-nav">
+            <li><a href="#">My Account</a></li>|
+            <li><a href="index.html">SignUp</a></li>|
+            <li><a href="index.html">Sign Out</a></li>|
+            <li><a href="index.html">Login</a></li>
+        </ul>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="index.html" class="checked">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<section>
+    <div class="signUp">
+        <table>
+        <tr>
+            <td><label for="emailSU">Email</label></td>
+        <td><input type="text" name="emailSU" id="emailSU" placeholder="Full Name"></td>
+            </tr><tr>
+        <td><label for="passwordSU">Password</label></td>
+        <td><input type="password" name="passwordSU" id="passwordSU" placeholder="password"/></td>
+        </tr>
+            <tr>
+                <td colspan="2" class="btnSU">
+                    <input type="button" onclick="SignUp()" value="Sign Up"/>
+                </td>
+            </tr>
+            <tr>
+               <td colspan="2"> <div id="errorBox" style="color: red; font-weight: bold"> </div></td>
+            </tr>
+        </table>
+
+    </div>
+</section>
+
+<section>
+    <div class="signIn">
+        <table>
+            <tr>
+                <td><label for="emailSI">Email</label></td>
+                <td><input type="text" name="emailSI" placeholder="Full Name"></td>
+            </tr><tr>
+            <td><label for="passwordSI">Password</label></td>
+            <td><input type="password" name="passwordSI" placeholder="password"/></td>
+        </tr>
+            <tr>
+                <td colspan="2" class="btnSI">
+                    <input type="button" value="Sign In" onclick="SingIn()"/>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</section>
+
+
+
+</body>
+</html>

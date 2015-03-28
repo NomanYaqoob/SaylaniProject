@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+
+
+</head>
+<body class="main">
+<header>
+    <div class="header">
+
+        <span class="logo">Dop
+            <span>Shop</span>
+            <span class="SupportLogo">The best Shopping Site in Pakistan</span >
+        </span>
+        <ul class="head-nav">
+            <li><a href="#">My Account</a></li>|
+            <li><a href="#">SignUp</a></li>|
+            <li><a href="#">Sign Out</a></li>|
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="shop.html" class="checked">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<section>
+    <div class="bill-sec">
+        <table>
+            <tr>
+                <td><label for="cost">Cost: </label></td>
+                <td><input type="text" id="costTextBox" disabled="disabled" /></td>
+            </tr>
+            <tr>
+                <td><label for="cardNo">Credit Card Number: </label></td>
+                <td><input type="text" name="cardNo" id="cardNo"/></td>
+            </tr>
+            <tr>
+                <td><label for="BankName">Bank Name: </label></td>
+                <td><input type="text" name="BankName" id="bankName"/></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="Pay" onclick="paid()" class="btnPay"/></td>
+            </tr>
+        </table>
+
+
+    </div>
+</section>
+<script>
+    var CCard = [];
+    var bDetail = [];
+    var getValue = localStorage["bill"];
+    var txtBox = document.getElementById("costTextBox")
+    txtBox.value  =  getValue;
+    txtBox.isDisabled = true;
+
+    function paid() {
+        var bankDetail = document.getElementById("bankName");
+        var CC = document.getElementById("cardNo");
+        if(CC.value.length != 0 && bankDetail.value.length != 0){
+        CCard.push(CC.value);
+        bDetail.push(bankDetail.value);
+        alert("Paid..We will deliver you Shortly");
+        document.getElementById("bankName").value = "";
+        document.getElementById("cardNo").value = "";
+        location.href="shop.html";
+        }
+        else {
+            alert("Complete the fields");
+        }
+    }
+</script>
+</body>
+</html>

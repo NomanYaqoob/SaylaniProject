@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<body class="main">
+<header>
+    <div class="header">
+
+        <span class="logo">Dop
+            <span>Shop</span>
+            <span class="SupportLogo">The best Shopping Site in Pakistan</span >
+        </span>
+        <ul class="head-nav">
+            <li><a href="#">My Account</a></li>|
+            <li><a href="#">SignUp</a></li>|
+            <li><a href="#">Sign Out</a></li>|
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="shop.html" class="checked">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</div>
+</header>
+<div class="featuredProduct">
+    <div class="Product">
+        <img src="images/dslr.jpg" alt="product"/><br/>
+        <p>Product 1</p>
+        <h3>Price: $250</h3>
+        <input type="button" value="Buy Now" id="BuyNow" onclick="addToCart(this)">
+        <input type="button" value="Crash" id="crash">
+    </div>
+    <div class="Product">
+        <img src="images/A900ib.gif" alt="product"/><br/>
+        <p>Product 2</p>
+        <h3>Price: $150</h3>
+        <input type="button" value="Buy Now" id="BuyNow" onclick="addToCart(this)">
+        <input type="button" value="Crash" id="crash">
+    </div>
+    <div class="Product">
+        <img src="images/AscendY530b.gif" alt="product"/><br/>
+        <p>Product 3</p>
+        <h3>Price: $252</h3>
+        <input type="button" value="Buy Now" id="BuyNow" onclick="addToCart(this)">
+        <input type="button" value="Crash" id="crash">
+    </div>
+    <div class="Product">
+        <img src="images/1320b.gif" alt="product"/><br/>
+        <p>Product 4</p>
+        <h3>Price: $251</h3>
+        <input type="button" value="Buy Now" id="BuyNow" onclick="addToCart(this)">
+        <input type="button" value="Crash" id="crash">
+    </div>
+</div>
+
+<section class="cart">
+    <div style="text-align: center"><span style="color: white;font-size: 20px;">Add to Card</span>&nbsp;&nbsp;&nbsp;<img src="images/cart.png" alt="cart"/></div>
+    <div id="shoppingList"></div>
+    <div style="text-align: center"><input type="button" value="Done" class="btnDone" onclick="bill()"/></div>
+</section>
+<script type="text/javascript">
+
+    var ListCost = 0;
+    var count = 0;
+    function addToCart(element) {
+        var a   = element.parentNode.childNodes[6].innerHTML.substring(8)
+//        a = a.join("<br/>");
+        ListCost += parseInt(a);
+        document.getElementById("shoppingList").innerHTML += "Item No: "+ ++count + " = $" + a + "<br/>";
+    }
+
+    function bill() {
+        localStorage["bill"] = ListCost;
+        location.href = 'bill.html';
+    }
+</script>
+</body>
+</html>
